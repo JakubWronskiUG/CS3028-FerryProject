@@ -47,11 +47,10 @@ class Scraper:
                     row = [i.text for i in row_data]
                     length = len(data)
                     data.loc[length] = row
-                    print(row)
 
                 timetables.append(data)
 
-            return data
+            return timetables
 
         except:
             raise ScrapingMethodDidNotWorkOnAWebsite
