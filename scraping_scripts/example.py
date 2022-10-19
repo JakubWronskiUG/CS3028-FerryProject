@@ -6,4 +6,5 @@ scr = TimeTableScraper()
 pentland_ferries_timetables = scr.get_timetables_from_website(
     FerryCompany.PENTLANDFERRIES)
 
-print(pentland_ferries_timetables)
+for timetable in pentland_ferries_timetables:
+    print(timetable, '\n')
