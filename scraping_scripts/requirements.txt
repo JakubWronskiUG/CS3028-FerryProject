@@ -1,0 +1,5 @@
+#install all required python packages by using 'pip install -r requirements.txt'
+bs4
+requests
+pandas
+lxml
