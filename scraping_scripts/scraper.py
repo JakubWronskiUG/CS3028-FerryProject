@@ -2,8 +2,7 @@ from bs4 import BeautifulSoup
 from enum import Enum, auto
 import requests
 import pandas as pd
-from ferry_companies import FerryCompany
-import ferry_companies
+from ferry_companies import FerryCompany, CompanyInfoGetter, ScrapingType
 
 
 class CompanyNotSupportedException(Exception):
@@ -12,10 +11,6 @@ class CompanyNotSupportedException(Exception):
 
 class ScrapingMethodDidNotWorkOnAWebsite(Exception):
     pass
-
-
-class ScrapingType(Enum):
-    HTMLTABLE = auto()
 
 
 class Scraper:
@@ -59,19 +54,16 @@ class Scraper:
 
 class TimeTableScraper(Scraper):
 
-    ferry_company_scraping_type = {
-        FerryCompany.PENTLANDFERRIES: ScrapingType.HTMLTABLE
-    }
-
     def get_timetables_from_website(self, company: FerryCompany):
 
         if company not in FerryCompany:
             raise CompanyNotSupportedException(
                 f'Company {company} is not supported.')
 
-        scraping_type = self.ferry_company_scraping_type[company]
+        scraping_type = CompanyInfoGetter.get_company_scraping_type(company)
         scraping_method = self.website_scraping_method[scraping_type]
-        url = ferry_companies.company_urls[company]
+        url = CompanyInfoGetter.get_company_url(company)
+        tables = []
 
         try:
             tables = scraping_method(url)
@@ -79,5 +71,7 @@ class TimeTableScraper(Scraper):
             print(
                 f'Scraping method {scraping_type} did not work for {url}. Check if website still supports this scraping method.')
             return None
+        except Exception as e:
+            print(e)
 
         return tables
