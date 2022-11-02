@@ -1,0 +1,30 @@
+body {
+    padding: 7% 15%;
+    font: 0.9em/1.2 Arial, Helvetica, sans-serif;
+  }
+
+/*features section */
+.features {
+    padding: 7% 15%;
+    background: #98C1D9;
+    position: relative;
+    text-align: center;
+    z-index: 1;
+  }
+  
+.feature-box {
+    text-align: center;
+  }
+  
+.icon {
+    color: #3D5A80;
+    margin-bottom: 0.5rem;
+  }
+  
+.icon:hover {
+    color: #EE6C4D;
+  }
+    
+
+
+  
