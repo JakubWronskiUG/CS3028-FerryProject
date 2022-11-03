@@ -6,6 +6,7 @@ import Ideas from './components/Ideas';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import AboutUs from './components/AboutUs';
+import GetAllButton from './components/GetAllButton';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <TextInput/>
       <h2>Enter arrival port:</h2>
       <TextInput/>
+      <GetAllButton/>
       </div>
       <Ideas/>
       <Icons/>
