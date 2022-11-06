@@ -62,7 +62,7 @@ class TimeTableScraper(Scraper):
 
         scraping_type = CompanyInfoGetter.get_company_scraping_type(company)
         scraping_method = self.website_scraping_method[scraping_type]
-        url = CompanyInfoGetter.get_company_url(company)
+        url = CompanyInfoGetter.get_company_timetable_url(company)
         tables = []
 
         try:
