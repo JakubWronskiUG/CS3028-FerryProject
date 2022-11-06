@@ -9,21 +9,62 @@ class ScrapingType(Enum):
     HTMLTABLE = auto()
 
 
+class FerryCompanyObject:
+
+    enum = None
+    id = None
+    name = None
+    timetable_url = None
+    home_url = None
+    tickets_url = None
+    scraping_type = None
+
+    def __init__(self, enum: FerryCompany, id: str, name: str, timetable_url: str, home_url: str, tickets_url: str, scraping_type: ScrapingType):
+        self.enum = enum
+        self.id = id
+        self.name = name
+        self.timetable_url = timetable_url
+        self.home_url = home_url
+        self.tickets_url = tickets_url
+        self.scraping_type = scraping_type
+
+
+COMPANIES = {
+    FerryCompany.PENTLANDFERRIES:
+    FerryCompanyObject(
+        enum=FerryCompany.PENTLANDFERRIES,
+        id="1",
+        name="Pentland Ferries",
+        timetable_url='https://pentlandferries.co.uk/timetable-2/',
+        home_url='https://pentlandferries.co.uk',
+        tickets_url='https://pentlandferries.co.uk',
+        scraping_type=ScrapingType.HTMLTABLE
+    ),
+}
+
+
 class CompanyInfoGetter:
 
     @staticmethod
-    def get_company_url(company: FerryCompany):
+    def get_company_id(company: FerryCompany):
+        return COMPANIES[company].id
 
-        company_urls = {
-            FerryCompany.PENTLANDFERRIES: 'https://pentlandferries.co.uk/timetable-2/'
-        }
+    @staticmethod
+    def get_company_name(company: FerryCompany):
+        return COMPANIES[company].name
 
-        return company_urls[company]
+    @staticmethod
+    def get_company_timetable_url(company: FerryCompany):
+        return COMPANIES[company].timetable_url
+
+    @staticmethod
+    def get_company_home_url(company: FerryCompany):
+        return COMPANIES[company].home_url
+
+    @staticmethod
+    def get_company_tickets_url(company: FerryCompany):
+        return COMPANIES[company].tickets_url
 
     @staticmethod
     def get_company_scraping_type(company: FerryCompany):
-        company_scraping_type = {
-            FerryCompany.PENTLANDFERRIES: ScrapingType.HTMLTABLE
-        }
-
-        return company_scraping_type[company]
+        return COMPANIES[company].scraping_type
