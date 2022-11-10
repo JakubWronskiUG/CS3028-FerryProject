@@ -14,12 +14,12 @@ function App() {
   return (
     <div className="App">
       <Header/>
-<<<<<<< HEAD
+
       <div className="search">
-=======
-      <div class="search">
+
+      <div className="search">
       <h1>Single Journey</h1>
->>>>>>> 0f69164f009ddd4692cda392b078d99f9abc9c46
+
       <h2>Enter departure port:</h2>
       <TextInput/>
       <h2>Enter arrival port:</h2>
@@ -32,6 +32,7 @@ function App() {
       <Icons/>
       <AboutUs/>
       <Footer/>
+    </div>
     </div>
   );
 }
