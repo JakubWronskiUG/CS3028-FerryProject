@@ -10,7 +10,7 @@ const GetAllButton = () => {
 
         try {
             const response = await fetch(
-                "http://localhost:5000/api/trips", {
+                "http://144.21.35.44:5000/api/trips", {
                     method: "GET", 
                     headers: {
                         Accept: 'application/json',

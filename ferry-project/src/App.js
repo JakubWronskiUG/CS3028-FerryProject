@@ -12,7 +12,7 @@ function App() {
   return (
     <div className="App">
       <Header/>
-      <div class="search">
+      <div className="search">
       <h2>Enter departure port:</h2>
       <TextInput/>
       <h2>Enter arrival port:</h2>
