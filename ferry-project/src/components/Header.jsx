@@ -7,6 +7,7 @@ const Header = () => {
             <div className="row">
                 <div className="col-lg-9">
                     <h1>FerryWave</h1>   
+                    <img src="FerrywaveLogo.png" alt="logo" width="300" height="100"></img>
                 </div>
                 <div className="col-lg-1">
                     <button type="button">Timetables</button> 
