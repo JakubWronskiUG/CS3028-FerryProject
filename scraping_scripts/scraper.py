@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 from enum import Enum, auto
 import requests
 import pandas as pd
-from ferry_companies import FerryCompany, CompanyInfoGetter, ScrapingType
+from objects.ferry_companies import FerryCompany, CompanyInfoGetter, ScrapingType
 
 
 class CompanyNotSupportedException(Exception):
