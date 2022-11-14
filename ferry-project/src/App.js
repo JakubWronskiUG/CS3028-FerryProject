@@ -17,7 +17,7 @@ function App() {
 
       <div className="search">
 
-      <div className="search">
+      
       <h1>Single Journey</h1>
 
       <h2>Enter departure port:</h2>
@@ -33,7 +33,7 @@ function App() {
       <AboutUs/>
       <Footer/>
     </div>
-    </div>
+    
   );
 }
 
