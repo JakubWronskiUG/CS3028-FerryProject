@@ -16,14 +16,14 @@ function App() {
       <Header/>
 
       <div className="search">
-
-      
       <h1>Single Journey</h1>
-
+      <br></br>
       <h2>Enter departure port:</h2>
       <TextInput/>
+      <br></br>
       <h2>Enter arrival port:</h2>
       <TextInput/>
+      <br></br>
       <h2>Enter date and time of travel:</h2>
       <Calender/>
       <GetAllButton/>
@@ -36,5 +36,6 @@ function App() {
     
   );
 }
+
 
 export default App;

@@ -1,4 +1,25 @@
 .up-container {
-    padding: 7%;
+    padding: 5%;
     background: #ffffff;
-  }
+}
+
+.button {
+    background-color: #3D5A80; 
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    padding: 7px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+}
+
+.button:hover {
+  background-color: #EE6C4D; 
+}
+
+#departure {margin-right : 20px; float:left;}
+#text-input {float:left;}
