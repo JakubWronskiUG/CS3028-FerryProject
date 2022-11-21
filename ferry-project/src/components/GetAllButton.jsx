@@ -34,7 +34,7 @@ const GetAllButton = () => {
     return (
         <div className="trips-container">
             {err && <h2>{err}</h2>}
-            <button onClick={handleClick}>Fetch data</button>
+            <button class="button" onClick={handleClick}>Get routes</button>
             {isLoading && <h2>Loading...</h2>}
             {trips && trips.map((trip) => (
                 <div className="item-container" key={trip._id}>
