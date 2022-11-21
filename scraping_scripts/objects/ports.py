@@ -1,5 +1,4 @@
 from enum import Enum, auto
-from .ferry_companies import FerryCompany
 
 
 class Port(Enum):
@@ -39,7 +38,7 @@ PORTS = {
     PortObject(
         enum=Port.STMARGARETSHOPE,
         id="2",
-        name="St Margarets Hope",
+        name="St Margaret’s Hope",
         city="Wick",
         island="Orkney",
         country="Scotland"

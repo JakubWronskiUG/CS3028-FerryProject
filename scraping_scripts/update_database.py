@@ -3,6 +3,7 @@ from pymongo import MongoClient
 from objects.ferries import Ferry, FerryInfoGetter
 from objects.ferry_companies import FerryCompany, CompanyInfoGetter
 from objects.ports import Port, PortInfoGetter
+from objects.trips import TripObject, TripsParser
 
 
 class Collection(Enum):
@@ -16,6 +17,7 @@ class Collection(Enum):
 class DBUpdater:
 
     client = None
+    # db_name = 'test-python'
     db_name = 'test'
     db = None
 
@@ -76,7 +78,7 @@ class DBUpdater:
 
         self.db[ferry_mapping_collection].insert_one(update_dict)
 
-    def append_ports(self, port: Port):
+    def append_ports_collection(self, port: Port):
 
         ports_collection = self.collections[Collection.PORT]
 
@@ -90,8 +92,20 @@ class DBUpdater:
 
         self.db[ports_collection].insert_one(update_dict)
 
-    def append_trips(self, trip):
-        pass
+    def append_trips_collection(self, trip):
+        trips_collection = self.collections[Collection.TRIP]
+        update_dict = {
+            'trip_id': trip.id,
+            'ferry_id': trip.ferry_id,
+            'port_from_id': trip.port_from_id,
+            'port_to_id': trip.port_to_id,
+            'trip_date': trip.trip_date,
+            'hour_start': trip.hour_start,
+            'duration_minutes': trip.duration_minutes
+        }
+
+        self.db[trips_collection].insert_one(update_dict)
+        print("Processed trip: ", trip.id)
 
     def update_databases(self):
 
@@ -108,11 +122,12 @@ class DBUpdater:
         for ferry in Ferry:  # update mapping
             self.append_company_to_ferry_mapping_collection(ferry)
 
-        for port in Port:
-            self.append_ports(port)
+        for port in Port:   # update ports
+            self.append_ports_collection(port)
 
-        # update ports
-        # update trips
+        parser = TripsParser()
+        for trip in parser.get_all_trips():
+            self.append_trips_collection(trip)
 
         db = self.client['test']['companies']
         dict = {'name': 'test_company'}
