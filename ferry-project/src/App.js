@@ -9,14 +9,17 @@ import AboutUs from './components/AboutUs';
 import GetAllButton from './components/GetAllButton';
 import Calender from './components/Calender';
 
+
+
 function App() {
 
   return (
     <div className="App">
       <Header/>
-
+      
       <div className="search">
       <h1>Single Journey</h1>
+      <img align="right" src="ferryimage.jpg" alt="image" width="375.5" height="281.7"></img>
       <br></br>
       <h2>Enter departure port:</h2>
       <TextInput/>

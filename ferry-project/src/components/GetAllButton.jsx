@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 
+
 const GetAllButton = () => {
     const [trips, setTrips] = useState();
     const [isLoading, setIsLoading] = useState(false);
@@ -38,6 +39,7 @@ const GetAllButton = () => {
             {trips && trips.map((trip) => (
                 <div className="item-container" key={trip._id}>
                     Id:{trip.ferryId} <div className="title">PortFromId:{trip.portFromId}</div>
+                
                 </div>
             ))}
         </div>
