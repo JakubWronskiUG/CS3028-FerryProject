@@ -18,8 +18,9 @@ class FerryCompanyObject:
     home_url = None
     tickets_url = None
     scraping_type = None
+    default_ferry_id = None
 
-    def __init__(self, enum: FerryCompany, id: str, name: str, timetable_url: str, home_url: str, tickets_url: str, scraping_type: ScrapingType):
+    def __init__(self, enum: FerryCompany, id: str, name: str, timetable_url: str, home_url: str, tickets_url: str, scraping_type: ScrapingType, default_ferry_id: str):
         self.enum = enum
         self.id = id
         self.name = name
@@ -27,6 +28,7 @@ class FerryCompanyObject:
         self.home_url = home_url
         self.tickets_url = tickets_url
         self.scraping_type = scraping_type
+        self.default_ferry_id = default_ferry_id
 
 
 COMPANIES = {
@@ -38,7 +40,8 @@ COMPANIES = {
         timetable_url='https://pentlandferries.co.uk/timetable-2/',
         home_url='https://pentlandferries.co.uk',
         tickets_url='https://pentlandferries.co.uk',
-        scraping_type=ScrapingType.HTMLTABLE
+        scraping_type=ScrapingType.HTMLTABLE,
+        default_ferry_id="1"
     ),
 }
 
@@ -68,3 +71,7 @@ class CompanyInfoGetter:
     @staticmethod
     def get_company_scraping_type(company: FerryCompany):
         return COMPANIES[company].scraping_type
+
+    @staticmethod
+    def get_company_default_ferry_id(company: FerryCompany):
+        return COMPANIES[company].default_ferry_id

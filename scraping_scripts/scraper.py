@@ -1,8 +1,10 @@
 from bs4 import BeautifulSoup
 from enum import Enum, auto
 import requests
+from collections import namedtuple
 import pandas as pd
-from ferry_companies import FerryCompany, CompanyInfoGetter, ScrapingType
+from objects.ferry_companies import FerryCompany, CompanyInfoGetter, ScrapingType
+from objects.ports import Port, PortInfoGetter
 
 
 class CompanyNotSupportedException(Exception):
@@ -21,11 +23,15 @@ class Scraper:
             soup = BeautifulSoup(page.text, 'lxml')
 
             table_sections = soup.find_all(class_='timetab')
-            timetables = []
+
+            TimetableTouple = namedtuple(
+                "TimetabelsTouple", "timetable heading")
+
+            return_touples = []
 
             for table_section in table_sections:
-                table_title = table_section.h5.text
 
+                table_title = table_section.h5.text
                 headers = []
                 headers_set = table_section.find_all('th')
                 for header in headers_set:
@@ -40,11 +46,14 @@ class Scraper:
                     length = len(data)
                     data.loc[length] = row
 
-                timetables.append(data)
+                t = TimetableTouple(data, table_title)
 
-            return timetables
+                return_touples.append(t)
 
-        except:
+            return return_touples
+
+        except Exception as e:
+            print(e)
             raise ScrapingMethodDidNotWorkOnAWebsite
 
     website_scraping_method = {
@@ -54,19 +63,34 @@ class Scraper:
 
 class TimeTableScraper(Scraper):
 
-    def get_timetables_from_website(self, company: FerryCompany):
+    def get_port_from_text(self, text: str) -> Port:
+        for port in Port:
+            # print(text)
+            if text.lower().find(PortInfoGetter.get_port_name(port).lower()) != -1:
+                # print("Found you!!!!", port)
+                return port
+        return None
+
+    def get_timetables_for_company(self, company: FerryCompany) -> list:
 
         if company not in FerryCompany:
             raise CompanyNotSupportedException(
                 f'Company {company} is not supported.')
 
+        # return type
+        TimetableInfoBlock = namedtuple(
+            "TimetableInfoBlock", "timetable ferry_id port_from port_to")
+
+        # select proper scraping tools
         scraping_type = CompanyInfoGetter.get_company_scraping_type(company)
         scraping_method = self.website_scraping_method[scraping_type]
         url = CompanyInfoGetter.get_company_timetable_url(company)
-        tables = []
+        timetables = []
+        ferry_id = None
 
+        # scrape
         try:
-            tables = scraping_method(url)
+            timetables = scraping_method(url)
         except ScrapingMethodDidNotWorkOnAWebsite:
             print(
                 f'Scraping method {scraping_type} did not work for {url}. Check if website still supports this scraping method.')
@@ -74,4 +98,14 @@ class TimeTableScraper(Scraper):
         except Exception as e:
             print(e)
 
-        return tables
+        # assign metadata
+        if company == FerryCompany.PENTLANDFERRIES:
+            ferry_id = "1"
+
+        return [TimetableInfoBlock(
+            t.timetable,
+            ferry_id,
+            self.get_port_from_text(t.heading),
+            Port.GILLSBAY if self.get_port_from_text(
+                t.heading) == Port.STMARGARETSHOPE else Port.STMARGARETSHOPE
+        ) for t in timetables]
