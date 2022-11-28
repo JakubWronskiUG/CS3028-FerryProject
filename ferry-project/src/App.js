@@ -37,7 +37,7 @@ function App() {
       <ArrInput/>
       <br />
 
-      <h2>Date And Time Of Travel:</h2>
+      <h2>Date and Time of Departure:</h2>
       
       <DateTimeInput/>
       <br />
