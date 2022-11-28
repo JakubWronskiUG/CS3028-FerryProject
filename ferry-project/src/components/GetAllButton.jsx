@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import './Container.css'
 
 
 const GetAllButton = () => {
@@ -38,24 +39,35 @@ const GetAllButton = () => {
             <button class="button" onClick={handleClick}>Get all routes</button>
             {isLoading && <h2>Loading...</h2>}
             {trips && trips.map((trip) => (
+                
                 <div className="item-container" key={trip._id} >
 
                     <br />
-                    Trip ID: { trip.tripId }, 
-                    <br />
-                    Ferry ID: { trip.ferryId }, 
-                    <br />
-                    Port From ID: { trip.portFromId } 
-                    <br />
-                    Port To ID: { trip.portToId } 
-                    <br />
-                    Trip Date: { trip.tripDate }
-                    <br />
-                    Hour Start: { trip.hourStart }
-                    <br />
-                    Duration (Minutes): { trip.durationMinutes }
-                    <br />
                     
+                    <table>
+                    <tr>
+                        <th>Trip ID</th>
+                        <th>Ferry ID</th>
+                        <th>Port From ID</th>
+                        <th>Port To ID</th>
+                        <th>Trip Date</th>
+                        <th>Hour Start</th>
+                        <th>Duration (Minutes)</th>
+                    </tr>
+                    <tr>
+                        <td>{ trip.tripId }</td>
+                        <td>{ trip.ferryId }</td>
+                        <td>{ trip.portFromId } </td>
+                        <td>{ trip.portToId }  </td>
+                        <td>{ trip.tripDate } </td>
+                        <td>{ trip.hourStart } </td>
+                        <td>{ trip.durationMinutes } </td>
+                    </tr>
+ 
+                    </table>
+
+
+
                 
                 </div>
             ))}
