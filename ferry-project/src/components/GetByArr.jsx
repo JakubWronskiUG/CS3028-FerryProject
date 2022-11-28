@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 
 
-const GetByDep = ({params}) => {
+const GetByArr = ({params}) => {
     
     if (params == "Gills Bay"){
         params = 1
@@ -14,15 +14,15 @@ const GetByDep = ({params}) => {
     const [err, setErr] = useState('');
     const url = (
         'http://localhost:5001/api/trips/' +
-        new URLSearchParams( {bydeparture: 1 }).toString()
+        new URLSearchParams( {bydestination: 1 }).toString()
         );
     const url2 = (
-        'http://localhost:5001/api/trips/bydeparture/1'
+        'http://localhost:5001/api/trips/bydestination/1'
         
       );
 
     const url3 = (
-        'http://localhost:5001/api/trips/bydeparture/' + params
+        'http://localhost:5001/api/trips/bydestination/' + params
         
       );
     
@@ -60,7 +60,7 @@ const GetByDep = ({params}) => {
             <div className="trips-container">
                 
                 {err && <h2>{err}</h2>}
-                <button class="button" onClick={handleClick} >Get by departure port</button>
+                <button class="button" onClick={handleClick} >Get by arrival port</button>
                 
                 {isLoading && <h2>Loading...</h2>}
                 
@@ -95,4 +95,4 @@ const GetByDep = ({params}) => {
 
 
 
-export default GetByDep;
+export default GetByArr;

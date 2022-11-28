@@ -45,8 +45,6 @@ function App() {
 
       <GetAllButton/>
       <br />
-
-      <GetByDep/>
       
       </div>
       

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import DropdownList from "react-widgets/DropdownList";
-
+import GetByDep from "./GetByDep";
 
 const DepInput = () => {
 
@@ -16,7 +16,8 @@ const DepInput = () => {
     data={["Gills Bay", "St. Margaret's Hope Ferry Terminal"]}
     
     />
-    
+    <br/>
+    <GetByDep params={depPort}/>
     </div>
     )
 }
