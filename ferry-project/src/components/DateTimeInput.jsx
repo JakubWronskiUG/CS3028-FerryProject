@@ -1,13 +1,15 @@
 import DatePicker from "react-widgets/DatePicker";
 import React, { useState } from "react";
 
+
 const DateTimeInput = () => {
-    const [date, setDate] = useState(new(Date));
+    const [date, setDate] = useState();
     
     return (
     
     <DatePicker 
-      style = {{ width: 600 }}
+      style = {{ width: 600 , fontSize: 15}}
+      
       defaultValue={new Date()} 
       includeTime 
       min={new Date()}

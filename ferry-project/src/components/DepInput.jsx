@@ -10,7 +10,7 @@ const DepInput = () => {
     return (
     <div className="depinput">
     <DropdownList
-    style = {{ width: 600 }}
+    style = {{ width: 600, fontSize: 15 }}
     depPort={depPort}
     onChange={(depPort) => setDepPort(depPort) & console.log(depPort)}
     data={["Gills Bay", "St. Margaret's Hope Ferry Terminal"]}

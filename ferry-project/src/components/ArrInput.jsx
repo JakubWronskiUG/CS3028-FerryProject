@@ -8,7 +8,7 @@ const ArrInput = () => {
     return (
     <div className="arrinput">
     <DropdownList
-    style = {{ width: 600 }}
+    style = {{ width: 600, fontSize: 15}}
     arrPort={arrPort}
     onChange={(arrPort) => setArrPort(arrPort) & console.log(arrPort)}
     data={["Gills Bay", "St. Margaret's Hope Ferry Terminal"]}

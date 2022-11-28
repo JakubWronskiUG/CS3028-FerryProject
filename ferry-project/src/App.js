@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import './styles/App.css';
 import "react-widgets/styles.css";
 import Icons from './components/Icons';
@@ -7,7 +7,6 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import AboutUs from './components/AboutUs';
 import GetAllButton from './components/GetAllButton';
-import GetByDep from './components/GetByDep';
 import DepInput from "./components/DepInput";
 import ArrInput from "./components/ArrInput";
 import DateTimeInput from "./components/DateTimeInput";

@@ -3,25 +3,17 @@ import React, {useState} from 'react';
 
 const GetByArr = ({params}) => {
     
-    if (params == "Gills Bay"){
+    if (params === "Gills Bay"){
         params = 1
     }
-    if (params == "St. Margaret's Hope Ferry Terminal"){
+    if (params === "St. Margaret's Hope Ferry Terminal"){
         params = 2
     }
     const [trips, setTrips] = useState();
     const [isLoading, setIsLoading] = useState(false);
     const [err, setErr] = useState('');
-    const url = (
-        'http://localhost:5001/api/trips/' +
-        new URLSearchParams( {bydestination: 1 }).toString()
-        );
-    const url2 = (
-        'http://localhost:5001/api/trips/bydestination/1'
-        
-      );
 
-    const url3 = (
+    const url = (
         'http://localhost:5001/api/trips/bydestination/' + params
         
       );
@@ -33,7 +25,7 @@ const GetByArr = ({params}) => {
 
         try {
             const response = await fetch(
-                url3, {
+                url, {
                 method: "GET", 
                 headers: {
                     Accept: 'application/json',

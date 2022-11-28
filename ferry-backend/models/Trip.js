@@ -1,7 +1,7 @@
 import { Schema, model } from "mongoose";
 
 const tripSchema = new Schema( {
-    ferryId: {type: Number, required: true},
+    ferryId: {type: String, required: true},
     portFromId: {type: String, required: true},
     portToId: {type: String, required: true},
     tripDate: {type: Date, required: true},
