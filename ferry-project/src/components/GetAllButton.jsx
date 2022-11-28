@@ -20,9 +20,9 @@ const GetAllButton = () => {
             ).then((response) => response.json());
             setTrips(response);
 
-        if (!response.ok) {
-            throw new Error(`Error! status: ${response.status}`);
-        }
+        //if (!response.ok) {
+        //    throw new Error(`Error! status: ${response.status}`);
+        //}
         } catch (err) {
         setErr(err.message);
         } finally {
@@ -33,12 +33,29 @@ const GetAllButton = () => {
 
     return (
         <div className="trips-container">
+            
             {err && <h2>{err}</h2>}
-            <button class="button" onClick={handleClick}>Get routes</button>
+            <button class="button" onClick={handleClick}>Get all routes</button>
             {isLoading && <h2>Loading...</h2>}
             {trips && trips.map((trip) => (
-                <div className="item-container" key={trip._id}>
-                    Id:{trip.ferryId} <div className="title">PortFromId:{trip.portFromId}</div>
+                <div className="item-container" key={trip._id} >
+
+                    <br />
+                    Trip ID: { trip.tripId }, 
+                    <br />
+                    Ferry ID: { trip.ferryId }, 
+                    <br />
+                    Port From ID: { trip.portFromId } 
+                    <br />
+                    Port To ID: { trip.portToId } 
+                    <br />
+                    Trip Date: { trip.tripDate }
+                    <br />
+                    Hour Start: { trip.hourStart }
+                    <br />
+                    Duration (Minutes): { trip.durationMinutes }
+                    <br />
+                    
                 
                 </div>
             ))}
