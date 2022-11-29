@@ -80,6 +80,8 @@ const GetByDep = ({params}) => {
                             </tr>
         
                             </table>
+
+                            <br />
                             
                         
                         </div>

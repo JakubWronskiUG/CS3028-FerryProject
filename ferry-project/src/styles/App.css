@@ -2,25 +2,24 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
 }
 
 h1 {
-  color: black;
+  color: #243953;
 }
 
 
 .search {
   padding: 5% 6%; 
   background: #98C1D9;
-  color: #3D5A80;
+  color: #3d5a80;
 }
 
-.post {
-  display: flex;
-  padding: 15px;
-  border: 2px solid teal;
-  margin-top: 15px;
-  justify-content: space-between;
-  align-items: center;
-}
+.ferryImage {
+  min-width: 30%;
+  width: 40%;
+  height: 40%;
+  padding-left: 900;
 
+}

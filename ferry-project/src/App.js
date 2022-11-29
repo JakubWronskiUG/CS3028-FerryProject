@@ -21,10 +21,11 @@ function App() {
       <Header/>
       
       <div className="search">
-      
+
       <h1>Single Journey</h1>
 
-      <img align="right" src="ferryimage.jpg" alt="ferryimage" width="375.5" height="281.7"></img>
+      <img className = "ferryImage" alt = "ferryimage" src = "ferryimage.jpg" align = "right"/>
+      
       <br />
 
       <h2>Departure Port:</h2>
