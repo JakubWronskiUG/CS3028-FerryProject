@@ -53,7 +53,7 @@ const GetByArr = ({params}) => {
             <div className="trips-container">
                 
                 {err && <h2>{err}</h2>}
-                <button class="button" onClick={handleClick} >Get by arrival port</button>
+                <button className="button" onClick={handleClick} >Get by arrival port</button>
                 
                 {isLoading && <h2>Loading...</h2>}
                 

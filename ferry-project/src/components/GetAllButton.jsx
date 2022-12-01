@@ -36,7 +36,7 @@ const GetAllButton = () => {
         <div className="trips-container">
             
             {err && <h2>{err}</h2>}
-            <button class="button" onClick={handleClick}>Get all routes</button>
+            <button className="button" onClick={handleClick}>Get all routes</button>
             {isLoading && <h2>Loading...</h2>}
             
             {trips && trips.map((trip) => (
