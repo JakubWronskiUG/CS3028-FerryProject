@@ -51,7 +51,7 @@ const GetByDep = ({params}) => {
             <div className="trips-container">
                 
                 {err && <h2>{err}</h2>}
-                <button class="button" onClick={handleClick} >Get by departure port</button>
+                <button className="button" onClick={handleClick} >Get by departure port</button>
                 
                 {isLoading && <h2>Loading...</h2>}
                 
