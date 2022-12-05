@@ -1,0 +1,7 @@
+/ferry-backend/.env
+/ferry-backend/node_modules
+/ferry-backend/node_modules/*
+
+/ferry-project/.env
+/ferry-project/node_modules
+/ferry-project/node_modules/*

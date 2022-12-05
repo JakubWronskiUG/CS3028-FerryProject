@@ -14,7 +14,7 @@ const GetByDep = ({params}) => {
     const [err, setErr] = useState('');
   
     const url = (
-        'http://localhost:5001/api/trips/bydeparture/' + params
+        'http://144.21.35.44:5000/api/trips/bydeparture/' + params
         
       );
     
