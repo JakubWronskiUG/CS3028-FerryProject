@@ -45,10 +45,10 @@ class DBUpdater:
         company_collection = self.collections[Collection.COMPANY]
 
         update_dict = {
-            'company_id': CompanyInfoGetter.get_company_id(company),
-            'company_name': CompanyInfoGetter.get_company_name(company),
-            'company_home_url': CompanyInfoGetter.get_company_home_url(company),
-            'company_tickets_url': CompanyInfoGetter.get_company_tickets_url(company)
+            'companyId': CompanyInfoGetter.get_company_id(company),
+            'companyName': CompanyInfoGetter.get_company_name(company),
+            'companyHomeUrl': CompanyInfoGetter.get_company_home_url(company),
+            'companyTicketsUrl': CompanyInfoGetter.get_company_tickets_url(company)
         }
 
         self.db[company_collection].insert_one(update_dict)
@@ -58,11 +58,11 @@ class DBUpdater:
         ferry_collection = self.collections[Collection.FERRY]
 
         update_dict = {
-            'ferry_id': FerryInfoGetter.get_ferry_id(ferry),
-            'ferry_name': FerryInfoGetter.get_ferry_name(ferry),
-            'ferry_human_capacity': FerryInfoGetter.get_ferry_human_capacity(ferry),
-            'ferry_car_capacity': FerryInfoGetter.get_ferry_car_capacity(ferry),
-            'ferry_is_accessible': FerryInfoGetter.get_ferry_accessibility(ferry),
+            'ferryId': FerryInfoGetter.get_ferry_id(ferry),
+            'ferryName': FerryInfoGetter.get_ferry_name(ferry),
+            'ferryHumanCapacity': FerryInfoGetter.get_ferry_human_capacity(ferry),
+            'ferryCarCapacity': FerryInfoGetter.get_ferry_car_capacity(ferry),
+            'ferryIsAccessible': FerryInfoGetter.get_ferry_accessibility(ferry),
         }
 
         self.db[ferry_collection].insert_one(update_dict)
@@ -72,8 +72,8 @@ class DBUpdater:
         ferry_mapping_collection = self.collections[Collection.COMPANY_TO_FERRY_MAPPING]
 
         update_dict = {
-            'ferry_id': FerryInfoGetter.get_ferry_id(ferry),
-            'company_id': CompanyInfoGetter.get_company_id(FerryInfoGetter.get_company(ferry)),
+            'ferryId': FerryInfoGetter.get_ferry_id(ferry),
+            'companyId': CompanyInfoGetter.get_company_id(FerryInfoGetter.get_company(ferry)),
         }
 
         self.db[ferry_mapping_collection].insert_one(update_dict)
@@ -83,8 +83,8 @@ class DBUpdater:
         ports_collection = self.collections[Collection.PORT]
 
         update_dict = {
-            'port_id': PortInfoGetter.get_port_id(port),
-            'port_name': PortInfoGetter.get_port_name(port),
+            'portId': PortInfoGetter.get_port_id(port),
+            'portName': PortInfoGetter.get_port_name(port),
             'city': PortInfoGetter.get_port_city(port),
             'island': PortInfoGetter.get_port_island(port),
             'country': PortInfoGetter.get_port_country(port),
@@ -95,13 +95,13 @@ class DBUpdater:
     def append_trips_collection(self, trip):
         trips_collection = self.collections[Collection.TRIP]
         update_dict = {
-            'trip_id': trip.id,
-            'ferry_id': trip.ferry_id,
-            'port_from_id': trip.port_from_id,
-            'port_to_id': trip.port_to_id,
-            'trip_date': trip.trip_date,
-            'hour_start': trip.hour_start,
-            'duration_minutes': trip.duration_minutes
+            'tripId': trip.id,
+            'ferryId': trip.ferry_id,
+            'portFromId': trip.port_from_id,
+            'portToId': trip.port_to_id,
+            'tripDate': trip.trip_date,
+            'hourStart': trip.hour_start,
+            'durationMinutes': trip.duration_minutes
         }
 
         self.db[trips_collection].insert_one(update_dict)

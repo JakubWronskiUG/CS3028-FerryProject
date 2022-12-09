@@ -1,6 +1,6 @@
 from enum import Enum, auto
 import pandas as pd
-from datetime import datetime
+from datetime import datetime, timedelta
 
 from scraper import TimeTableScraper
 from .ferry_companies import FerryCompany, CompanyInfoGetter
@@ -63,5 +63,7 @@ class TripsParser:
                         )
                         ret.append(object)
                         i += 1
+
+                    current_date = current_date + timedelta(days=1)
 
         return ret
