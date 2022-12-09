@@ -7,10 +7,10 @@ Instructions on running project locally:
 Firstly, create a file named '.env' within the 'ferry-backend' directory.
 
 .env should include the following:
-PORT=5001
+PORT=5000
 MONGO_URI=mongodb+srv://user:user@cluster0.qlxmvjb.mongodb.net/?retryWrites=true&w=majority
 
-All ip address' contained with http requests must be changed to 'localhost', these are found in the 'GetAllButton', 'GetByArr' and GetByDep' components. 
+All IP address' contained with http requests must be changed to 'localhost', these are found in the 'GetAllButton', 'GetByArr' and GetByDep' components. 
 
 Run the 'npm install' command in terminal to install all of the required node_modules
 
