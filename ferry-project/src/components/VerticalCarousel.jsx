@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import cn from "classnames";
 import { ReactComponent as Next } from "./assets/chevronDown.svg";
 import { ReactComponent as Prev } from "./assets/chevronUp.svg";
-import "./styles.css";
+import "./carousel.css";
 
 /*
  * Read the blog post here:

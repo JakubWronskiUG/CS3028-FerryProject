@@ -21,7 +21,7 @@
         "introline": "Skye",
         "id": "skye",
         "content": {
-          "image": "https://via.placeholder.com/400x200?text=skye",
+          "image": "https://via.placeholder.com/400x200?text=Skye",
           "copy": "Bears ipsum dolor sit amet, consectetur adipiscing elit. Morbi accumsan est ornare, ultricies erat a, dapibus lectus."
         }
       },
@@ -29,7 +29,7 @@
         "introline": "Mull",
         "id": "mull",
         "content": {
-          "image": "https://via.placeholder.com/400x200?text=mull",
+          "image": "https://via.placeholder.com/400x200?text=Mull",
           "copy": "Lizards ipsum dolor sit amet, consectetur adipiscing elit. Morbi accumsan est ornare, ultricies erat a, dapibus lectus."
         }
       }

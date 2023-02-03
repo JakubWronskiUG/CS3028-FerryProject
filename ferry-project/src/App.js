@@ -10,8 +10,8 @@ import GetAllButton from './components/GetAllButton';
 import DepInput from "./components/DepInput";
 import ArrInput from "./components/ArrInput";
 import DateTimeInput from "./components/DateTimeInput";
-import data from "./assets/data.json";
-import VerticalCarousel from "./VerticalCarousel";
+import data from "./components/assets/data.json";
+import VerticalCarousel from "./components/VerticalCarousel";
 
 
 function App() {
