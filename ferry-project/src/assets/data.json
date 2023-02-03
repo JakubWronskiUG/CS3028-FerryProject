@@ -1,0 +1,38 @@
+{
+    "leadingText": "Travel to",
+    "slides": [
+      {
+        "introline": "Orkney",
+        "id": "orkney",
+        "content": {
+          "image": "https://via.placeholder.com/400x200?text=Orkney",
+          "copy": "Dog ipsum dolor sit amet, consectetur adipiscing elit. Morbi accumsan est ornare, ultricies erat a, dapibus lectus."
+        }
+      },
+      {
+        "introline": "Shetland",
+        "id": "shetland",
+        "content": {
+          "image": "https://via.placeholder.com/400x200?text=Shetland",
+          "copy": "Elephant ipsum dolor sit amet, consectetur adipiscing elit. Morbi accumsan est ornare, ultricies erat a, dapibus lectus."
+        }
+      },
+      {
+        "introline": "Skye",
+        "id": "skye",
+        "content": {
+          "image": "https://via.placeholder.com/400x200?text=skye",
+          "copy": "Bears ipsum dolor sit amet, consectetur adipiscing elit. Morbi accumsan est ornare, ultricies erat a, dapibus lectus."
+        }
+      },
+      {
+        "introline": "Mull",
+        "id": "mull",
+        "content": {
+          "image": "https://via.placeholder.com/400x200?text=mull",
+          "copy": "Lizards ipsum dolor sit amet, consectetur adipiscing elit. Morbi accumsan est ornare, ultricies erat a, dapibus lectus."
+        }
+      }
+    ]
+  }
+  

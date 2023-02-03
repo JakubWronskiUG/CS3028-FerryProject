@@ -10,7 +10,8 @@ import GetAllButton from './components/GetAllButton';
 import DepInput from "./components/DepInput";
 import ArrInput from "./components/ArrInput";
 import DateTimeInput from "./components/DateTimeInput";
-
+import data from "./assets/data.json";
+import VerticalCarousel from "./VerticalCarousel";
 
 
 function App() {
@@ -49,8 +50,15 @@ function App() {
       </div>
       
       <Ideas/>
+      
       <Icons/>
+
+      <React.StrictMode>
+      <VerticalCarousel data={data.slides} leadingText={data.leadingText} />
+      </React.StrictMode>
+
       <AboutUs/>
+      
       <Footer/>
 
     </div>
