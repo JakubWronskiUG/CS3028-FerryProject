@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import './styles/App.css';
 import "react-widgets/styles.css";
 import Icons from './components/Icons';
@@ -14,47 +14,48 @@ import DateTimeInput from "./components/DateTimeInput";
 
 
 function App() {
-  
+  const [arrPort, setArrPort] = useState("");
+  const [depPort, setDepPort] = useState("");
   return (
-    
+
     <div className="App">
-      <Header/>
-      
+      <Header />
+
       <div className="search">
 
-      <h1>Single Journey</h1>
+        <h1>Single Journey</h1>
 
-      <img className = "ferryImage" alt = "ferryimage" src = "ferryimage.jpg" align = "right"/>
-      
-      <br />
+        <img className="ferryImage" alt="ferryimage" src="ferryimage.jpg" align="right" />
 
-      <h2>Departure Port:</h2>
+        <br />
 
-      <DepInput/>
-      <br />
+        <h2>Departure Port:</h2>
 
-      <h2>Arrival Port:</h2>
-      
-      <ArrInput/>
-      <br />
+        <DepInput setDepPort={setDepPort} />
+        <br />
 
-      <h2>Date and Time of Departure:</h2>
-      
-      <DateTimeInput/>
-      <br />
+        <h2>Arrival Port:</h2>
 
-      <GetAllButton/>
-      <br />
-      
+        <ArrInput setArrPort={setArrPort} />
+        <br />
+
+        <h2>Date and Time of Departure:</h2>
+
+        <DateTimeInput />
+        <br />
+
+        <GetAllButton arrivalPort={arrPort} departurePort={depPort}/>
+        <br />
+
       </div>
-      
-      <Ideas/>
-      <Icons/>
-      <AboutUs/>
-      <Footer/>
+
+      <Ideas />
+      <Icons />
+      <AboutUs />
+      <Footer />
 
     </div>
-    
+
   );
 }
 
