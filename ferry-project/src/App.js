@@ -11,15 +11,22 @@ import DateTimeInput from "./components/DateTimeInput";
 import data from "./components/assets/data.json";
 import VerticalCarousel from "./components/VerticalCarousel";
 import LoginForm from "./components/LoginForm";
+import RegisterForm from "./components/RegisterForm";
 import NavBar from "./components/NavBar";
+import NavBar2 from "./components/NavBar2";
 import './components/Header.css';
 
 
 function App() {
   const [isShowLogin, setIsShowLogin] = useState(true);
+  const [isRegister, setRegister] = useState(true);
 
   const handleLoginClick = () => {
     setIsShowLogin((isShowLogin) => !isShowLogin);
+  };
+
+  const handleRegisterClick = () => {
+    setRegister((isRegister) => !isRegister);
   };
 
   return (
@@ -31,17 +38,17 @@ function App() {
                     <h1><img src="FerrywaveLogo.png" alt="logo" width="420" height="110"></img></h1>
                 </div>
                 <div className="col-lg-1">
-                    <br></br> <br></br><br></br><br></br><br></br>
-                    <button class="button">Register</button> 
+                    <br></br> <br></br><br></br><br></br>
+                    <NavBar2 handleRegisterClick={handleRegisterClick} />
                 </div>
                 <div className="col-lg-2">
                 <br></br> <br></br><br></br><br></br>
                     <NavBar handleLoginClick={handleLoginClick} />
-            
                 </div>
             </div>
         </div>
         <LoginForm isShowLogin={isShowLogin} />
+        <RegisterForm isRegister={isRegister} />
 
       
       <div className="search">
