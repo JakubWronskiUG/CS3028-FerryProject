@@ -1,9 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import './styles/App.css';
 import "react-widgets/styles.css";
 import Icons from './components/Icons';
-import Ideas from './components/Ideas';
-import Header from './components/Header';
 import Footer from './components/Footer';
 import AboutUs from './components/AboutUs';
 import GetAllButton from './components/GetAllButton';
@@ -12,14 +10,39 @@ import ArrInput from "./components/ArrInput";
 import DateTimeInput from "./components/DateTimeInput";
 import data from "./components/assets/data.json";
 import VerticalCarousel from "./components/VerticalCarousel";
+import LoginForm from "./components/LoginForm";
+import NavBar from "./components/NavBar";
+import './components/Header.css';
 
 
 function App() {
-  
+  const [isShowLogin, setIsShowLogin] = useState(true);
+
+  const handleLoginClick = () => {
+    setIsShowLogin((isShowLogin) => !isShowLogin);
+  };
+
   return (
     
     <div className="App">
-      <Header/>
+      <div className="up-container">   
+            <div className="row">
+                <div className="col-lg-9"> 
+                    <h1><img src="FerrywaveLogo.png" alt="logo" width="420" height="110"></img></h1>
+                </div>
+                <div className="col-lg-1">
+                    <br></br> <br></br><br></br><br></br><br></br>
+                    <button class="button">Register</button> 
+                </div>
+                <div className="col-lg-2">
+                <br></br> <br></br><br></br><br></br>
+                    <NavBar handleLoginClick={handleLoginClick} />
+            
+                </div>
+            </div>
+        </div>
+        <LoginForm isShowLogin={isShowLogin} />
+
       
       <div className="search">
 
@@ -49,13 +72,12 @@ function App() {
       
       </div>
       
-      <Ideas/>
-      
       <Icons/>
-
+      <div className="search">
       <React.StrictMode>
       <VerticalCarousel data={data.slides} leadingText={data.leadingText} />
       </React.StrictMode>
+      </div>
 
       <AboutUs/>
       
