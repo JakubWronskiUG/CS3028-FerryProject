@@ -23,7 +23,7 @@ function App() {
 
       <div className="search">
 
-        <h1>Single Journey</h1>
+        <h1>Plan Your Journey</h1>
 
         <img className="ferryImage" alt="ferryimage" src="ferryimage.jpg" align="right" />
 

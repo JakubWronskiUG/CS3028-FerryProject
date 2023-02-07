@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import DropdownList from "react-widgets/DropdownList";
-import GetByArr from "./GetByArr";
+
 
 const ArrInput = (props) => {
     const [arrPort, setArrPort] = useState("Please select end port");
@@ -21,7 +21,7 @@ const ArrInput = (props) => {
 
             />
             <br />
-            <GetByArr params={arrPort} />
+            
         </div>
     )
 }
