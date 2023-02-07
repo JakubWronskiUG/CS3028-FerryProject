@@ -8,7 +8,7 @@ const ArrInput = (props) => {
     const updateArrPort = (arrPort) => {
         setArrPort(arrPort)
         console.log(arrPort)
-        
+        props.setArrPort(arrPort)
     }
 
     return (

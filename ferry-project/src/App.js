@@ -18,6 +18,10 @@ import './components/Header.css';
 
 
 function App() {
+
+  const [arrPort, setArrPort] = useState("");	
+  const [depPort, setDepPort] = useState("");
+
   const [isShowLogin, setIsShowLogin] = useState(true);
   const [isRegister, setRegister] = useState(true);
 
@@ -59,23 +63,18 @@ function App() {
       
       <br />
 
-      <h2>Departure Port:</h2>
-
-      <DepInput/>
-      <br />
-
-      <h2>Arrival Port:</h2>
-      
-      <ArrInput/>
-      <br />
-
-      <h2>Date and Time of Departure:</h2>
-      
-      <DateTimeInput/>
-      <br />
-
-      <GetAllButton/>
-      <br />
+      	
+      <h2>Departure Port:</h2>	
+        <DepInput setDepPort={setDepPort} />	
+        <br />	
+        <h2>Arrival Port:</h2>	
+        <ArrInput setArrPort={setArrPort} />	
+        <br />	
+        <h2>Date and Time of Departure:</h2>	
+        <DateTimeInput />	
+        <br />	
+        <GetAllButton arrivalPort={arrPort} departurePort={depPort}/>	
+        <br />
       
       </div>
       
