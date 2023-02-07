@@ -11,7 +11,6 @@ const DateTimeInput = () => {
       style = {{ width: 600 , fontSize: 15}}
       
       defaultValue={new Date()} 
-      includeTime 
       min={new Date()}
       date={date}
       onChange={date => setDate(date) & console.log(date)}/>
