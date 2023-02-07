@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import './styles/App.css';
 import "react-widgets/styles.css";
 import Icons from './components/Icons';
@@ -18,47 +18,80 @@ import './components/Header.css';
 
 
 function App() {
-  
-  return (
+  const [isShowLogin, setIsShowLogin] = useState(true);
+  const [isRegister, setRegister] = useState(true);
 
+  const handleLoginClick = () => {
+    setIsShowLogin((isShowLogin) => !isShowLogin);
+  };
+
+  const handleRegisterClick = () => {
+    setRegister((isRegister) => !isRegister);
+  };
+
+  return (
+    
     <div className="App">
-      <Header/>
+      <div className="up-container">   
+            <div className="row">
+                <div className="col-lg-9"> 
+                    <h1><img src="FerrywaveLogo.png" alt="logo" width="420" height="110"></img></h1>
+                </div>
+                <div className="col-lg-1">
+                    <br></br> <br></br><br></br><br></br>
+                    <NavBar2 handleRegisterClick={handleRegisterClick} />
+                </div>
+                <div className="col-lg-2">
+                <br></br> <br></br><br></br><br></br>
+                    <NavBar handleLoginClick={handleLoginClick} />
+                </div>
+            </div>
+        </div>
+        <LoginForm isShowLogin={isShowLogin} />
+        <RegisterForm isRegister={isRegister} />
+
       
       <div className="search">
 
-        <h1>Plan Your Journey</h1>
+      <h1>Single Journey</h1>
 
-        <img className="ferryImage" alt="ferryimage" src="ferryimage.jpg" align="right" />
+      <img className = "ferryImage" alt = "ferryimage" src = "ferryimage.jpg" align = "right"/>
+      
+      <br />
 
-        <br />
+      <h2>Departure Port:</h2>
 
-        <h2>Departure Port:</h2>
+      <DepInput/>
+      <br />
 
-        <DepInput setDepPort={setDepPort} />
-        <br />
+      <h2>Arrival Port:</h2>
+      
+      <ArrInput/>
+      <br />
 
-        <h2>Arrival Port:</h2>
+      <h2>Date and Time of Departure:</h2>
+      
+      <DateTimeInput/>
+      <br />
 
-        <ArrInput setArrPort={setArrPort} />
-        <br />
-
-        <h2>Date and Time of Departure:</h2>
-
-        <DateTimeInput />
-        <br />
-
-        <GetAllButton arrivalPort={arrPort} departurePort={depPort}/>
-        <br />
-
+      <GetAllButton/>
+      <br />
+      
       </div>
       
-      <Ideas/>
       <Icons/>
+      <div className="search">
+      <React.StrictMode>
+      <VerticalCarousel data={data.slides} leadingText={data.leadingText} />
+      </React.StrictMode>
+      </div>
+
       <AboutUs/>
+      
       <Footer/>
 
     </div>
-
+    
   );
 }
 
