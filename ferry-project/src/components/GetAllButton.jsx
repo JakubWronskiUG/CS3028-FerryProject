@@ -2,10 +2,15 @@ import React, {useState} from 'react';
 import './Container.css'
 
 
-const GetAllButton = () => {
+const GetAllButton = (props) => {
     const [trips, setTrips] = useState();
     const [isLoading, setIsLoading] = useState(false);
     const [err, setErr] = useState('');
+
+    const portMap = {
+        "Gills Bay": "1",
+        "St. Margaret's Hope Ferry Terminal": "2"
+    }
 
     const handleClick = async () => {
         setIsLoading(true);
@@ -19,7 +24,21 @@ const GetAllButton = () => {
                     },
                 }
             ).then((response) => response.json());
-            setTrips(response);
+            
+            const filteredResults = response.filter(result=>{
+                console.log(result)
+                console.log(props)
+                console.log(portMap[props.departurePort])
+                console.log(portMap[props.arrivalPort])
+                console.log("...")
+                if(result.portFromId === portMap[props.departurePort] && result.portToId === portMap[props.arrivalPort]){
+                    return true
+                }
+                return false
+            })
+            console.log(filteredResults)
+
+            setTrips(filteredResults);
 
         //if (!response.ok) {
         //    throw new Error(`Error! status: ${response.status}`);
